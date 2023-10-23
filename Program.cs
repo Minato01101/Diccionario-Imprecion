@@ -37,13 +37,16 @@ namespace Diccionario_Imprecion
                     {
                         Alumno alumnoItem = new Alumno();
                         alumnoItem.guerdarDatos();
+                        //Se crea una lita de alumnos
                         listaAlumno.Add(alumnoItem);
 
                     } while (validarCondicion("otro Alumno"));
-
+                    
+                    //Se crea el diciionario de los grupos
                     dicionarioGrupos.Add(numeroGrupos,listaAlumno); 
                 } while (validarCondicion("otro Grupo"));
 
+                //Se crea el diccionario 
                 Matricula.Add(Materia, dicionarioGrupos);
             } while (validarCondicion("otra Materia"));
 
