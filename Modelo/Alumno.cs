@@ -60,6 +60,24 @@ namespace Diccionario_Imprecion.Modelo
             }
 
         }
+
+        public override string ToString()
+        {
+            StringBuilder sr = new StringBuilder();
+
+            sr.AppendLine($"Numero de carnet -> {this.numeroCarnet}");
+            sr.AppendLine($"Nombre -> {this.nombre}");
+            sr.AppendLine($"Promedio -> {this.promedio}");
+
+            sr.Append("Notas -> ");
+            for (int i = 0; i < this.notas.Length; i++)
+            {
+                sr.Append($"{notas[i]} ");
+            }
+
+            return sr.ToString();
+        }
+
     }
 }
  

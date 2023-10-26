@@ -1,0 +1,4 @@
+Numero de carnet -> sp23002
+Nombre -> Juan
+Promedio -> 7,75
+Notas -> 7 8 9 7 

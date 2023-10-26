@@ -18,7 +18,8 @@ namespace Diccionario_Imprecion
             Dictionary<String, Dictionary<String, List<Alumno>>> Matricula;
             Matricula = new Dictionary<string, Dictionary<string, List<Alumno>>>();
 
-            FileStream archivo = File.Create("..\\..\\Modelo");
+            FileStream archivo = File.Create("..\\..\\Modelo\\Matricula.txt");
+            archivo.Close();
 
             do
             {
@@ -65,10 +66,13 @@ namespace Diccionario_Imprecion
                     Console.WriteLine($"GRUPO -> {itemGrupo.Key}");
                     foreach (var itemAlumnos in itemGrupo.Value)
                     {
-                        itemAlumnos.MostrarDatos();
+                        itemAlumnos.ToString();
+                        Console.WriteLine(itemAlumnos.ToString());
                     }
                 }
             }
+
+            CrearDocumento(Matricula);
         }
 
         public static bool validarCondicion(string dato)
@@ -85,6 +89,27 @@ namespace Diccionario_Imprecion
             {
                 return false;
             }
+        }
+
+        static void CrearDocumento(Dictionary<String, Dictionary<String, List<Alumno>>> Matricula)
+        {
+            StreamWriter archivo = new StreamWriter("..\\..\\Modelo\\Matricula.txt");
+
+            foreach (var itemMatricula in Matricula)
+            {
+               
+
+                foreach (var itemGrupo in itemMatricula.Value)
+                {
+                    
+                    foreach (var itemAlumnos in itemGrupo.Value)
+                    {
+                        archivo.WriteLine(itemAlumnos.ToString());
+                    }
+                }
+            }
+
+            archivo.Close();
         }
     }
 }
