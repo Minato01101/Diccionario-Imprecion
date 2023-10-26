@@ -26,7 +26,9 @@ namespace Diccionario_Imprecion
                 dicionarioGrupos = new Dictionary<string, List<Alumno>>();
                 Console.WriteLine("Ingrese el nombre de la materia");
                 Materia = Console.ReadLine();
-               
+                //Alumno alumnoItem = new Alumno();
+                //List<Alumno> listaAlumno = new List<Alumno>();
+
 
                 do
                 {
@@ -43,7 +45,7 @@ namespace Diccionario_Imprecion
                         listaAlumno.Add(alumnoItem);
 
                     } while (validarCondicion("otro Alumno"));
-
+                    
                     //Se crea del grupo diccionario
                     dicionarioGrupos.Add(numeroGrupos,listaAlumno); 
                 } while (validarCondicion("otro Grupo"));
