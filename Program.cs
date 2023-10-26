@@ -18,8 +18,8 @@ namespace Diccionario_Imprecion
             Dictionary<String, Dictionary<String, List<Alumno>>> Matricula;
             Matricula = new Dictionary<string, Dictionary<string, List<Alumno>>>();
 
-            //FileStream archivo = File.Create("..\\..\\Modelo\\Matricula.txt");
-            //archivo.Close();
+            FileStream archivo = File.Create("..\\..\\Modelo\\Matricula.txt");
+            archivo.Close();
 
             do
             {
