@@ -18,8 +18,8 @@ namespace Diccionario_Imprecion
             Dictionary<String, Dictionary<String, List<Alumno>>> Matricula;
             Matricula = new Dictionary<string, Dictionary<string, List<Alumno>>>();
 
-            FileStream archivo = File.Create("..\\..\\Modelo\\Matricula.txt");
-            archivo.Close();
+            //FileStream archivo = File.Create("..\\..\\Modelo\\Matricula.txt");
+            //archivo.Close();
 
             do
             {
@@ -27,9 +27,6 @@ namespace Diccionario_Imprecion
                 dicionarioGrupos = new Dictionary<string, List<Alumno>>();
                 Console.WriteLine("Ingrese el nombre de la materia");
                 Materia = Console.ReadLine();
-                //Alumno alumnoItem = new Alumno();
-                //List<Alumno> listaAlumno = new List<Alumno>();
-
 
                 do
                 {
@@ -56,7 +53,7 @@ namespace Diccionario_Imprecion
 
             } while (validarCondicion("otra Materia"));
 
-
+            //Mostrando
             foreach (var itemMatricula in Matricula)
             {
                 Console.WriteLine($"MATERIA -> {itemMatricula.Key}");
@@ -73,6 +70,8 @@ namespace Diccionario_Imprecion
             }
 
             CrearDocumento(Matricula);
+            Console.WriteLine("Se muestra el Txt\n\n");
+            MostrarTxt();
         }
 
         public static bool validarCondicion(string dato)
@@ -93,23 +92,34 @@ namespace Diccionario_Imprecion
 
         static void CrearDocumento(Dictionary<String, Dictionary<String, List<Alumno>>> Matricula)
         {
-            StreamWriter archivo = new StreamWriter("..\\..\\Modelo\\Matricula.txt");
+            StreamWriter archivo = new StreamWriter("..\\..\\Modelo\\Matricula.txt",true, Encoding.UTF8);
 
             foreach (var itemMatricula in Matricula)
             {
-               
+                archivo.WriteLine($"MATERIA -> {itemMatricula.Key}");
 
                 foreach (var itemGrupo in itemMatricula.Value)
                 {
-                    
+                    archivo.WriteLine($"GRUPO -> {itemGrupo.Key}");   
                     foreach (var itemAlumnos in itemGrupo.Value)
                     {
+                        
                         archivo.WriteLine(itemAlumnos.ToString());
                     }
                 }
             }
 
             archivo.Close();
+        }
+
+        static void MostrarTxt()
+        {
+            string Contenido;
+            StreamReader stream = new StreamReader("..\\..\\Modelo\\Matricula.txt"); 
+
+            Contenido = stream.ReadToEnd();
+            Console.WriteLine(Contenido);
+
         }
     }
 }

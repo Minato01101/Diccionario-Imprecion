@@ -1,4 +1,10 @@
-Numero de carnet -> sp23002
+﻿Numero de carnet -> CM22002
+Nombre -> Kevin
+Promedio -> 6,25
+Notas -> 7 6 5 7 
+MATERIA -> Mate
+GRUPO -> 02
+Numero de carnet -> Sp23002
 Nombre -> Juan
-Promedio -> 7,75
-Notas -> 7 8 9 7 
+Promedio -> 8,5
+Notas -> 8 9 8 9 
